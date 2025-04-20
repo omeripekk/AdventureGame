@@ -9,9 +9,9 @@ public class Game {
         System.out.println("MACERA OYUNUNA HOŞGELDİNİZ !");
         System.out.println("Oyuna başlamadan önce isminizi giriniz : ");
         String playerName = scan.nextLine();
-        player = new Player(playerName);  // İsmi al ve oyuncuya ver
+        player = new Player(playerName);
         player.selectCha();
-        start();  // Oyunu başlat
+        start();
     }
 
     public void start() {
@@ -30,14 +30,13 @@ public class Game {
             String answer = scan.nextLine();
             int selLoc = 0;
 
-            // Geçerli bir sayı girene kadar tekrar sor
             while (!(answer.equals("1") || answer.equals("2") || answer.equals("3") || answer.equals("4") || answer.equals("5"))) {
                 System.out.println("Lütfen geçerli bir seçenek girin(1-5)");
                 answer = scan.nextLine();
 
             }
 
-            selLoc = Integer.parseInt(answer);  // Doğruysa int'e çevir
+            selLoc = Integer.parseInt(answer);
 
             switch (selLoc) {
                 case 1:
@@ -57,7 +56,6 @@ public class Game {
                     break;
             }
 
-            // Oyunu kazanma durumu kontrolü
             if (location.getClass().getSimpleName().equals("SafeHouse")) {
                 if (player.getInv().isFirewood() && player.getInv().isFood() && player.getInv().isWater()) {
                     System.out.println("Tebrikler Oyunu Kazandınız !");
@@ -65,7 +63,6 @@ public class Game {
                 }
             }
 
-            // Lokasyon false dönerse oyun biter
             if (!location.getLocation()) {
                 System.out.println("Oyun Bitti !");
                 break;

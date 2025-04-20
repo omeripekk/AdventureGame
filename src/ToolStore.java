@@ -14,23 +14,22 @@ public class ToolStore extends NormalLoc {
         String answer = scan.nextLine();
         int selLoc = 0;
 
-        // Geçerli bir seçenek girene kadar tekrar sor
+
         while (!(answer.equals("1") || answer.equals("2") || answer.equals("3"))) {
             System.out.println("Lütfen geçerli bir seçenek girin (1-3):");
             answer = scan.nextLine();
         }
 
-        selLoc = Integer.parseInt(answer);  // Doğruysa int'e çevir
+        selLoc = Integer.parseInt(answer);
 
-        // Seçilen yere göre işlem yap
         switch (selLoc) {
             case 1: {
-                int selItemID = weaponMenu();  // Silah menüsünü çağır
+                int selItemID = weaponMenu();
                 buyWeapon(selItemID);
                 break;
             }
             case 2: {
-                int selItemID = armorMenu();  // Zırh menüsünü çağır
+                int selItemID = armorMenu();
                 buyArmor(selItemID);
                 break;
             }
@@ -44,7 +43,6 @@ public class ToolStore extends NormalLoc {
 
     public int armorMenu() {
         int selArmorID = 0;
-        // Zırh seçim döngüsü
         while (true) {
             System.out.println("1. Hafif Zırh\t <Para : 15 - Engellenen Hasar : 1>");
             System.out.println("2. Orta Zırh\t <Para : 25 - Engellenen Hasar : 3>");
@@ -53,19 +51,18 @@ public class ToolStore extends NormalLoc {
             System.out.print("Zırh Seçiniz : ");
             String answer = scan.nextLine();
 
-            // Geçerli bir sayı girene kadar tekrar sor
             while (!(answer.equals("1") || answer.equals("2") || answer.equals("3") || answer.equals("4"))) {
                 System.out.println("Lütfen geçerli bir seçenek girin (1-4):");
                 answer = scan.nextLine();
             }
 
-            selArmorID = Integer.parseInt(answer);  // Doğruysa int'e çevir
+            selArmorID = Integer.parseInt(answer);
 
             if (selArmorID == 4) {
                 System.out.println("Zırh menüsünden çıkılıyor...");
                 return -1;
             }
-            break;  // Geçerli bir seçim yapıldığında döngüden çık
+            break;
         }
         return selArmorID;
     }
@@ -119,12 +116,11 @@ public class ToolStore extends NormalLoc {
             System.out.print("Silah Seçiniz : ");
             String input = scan.nextLine();
 
-            // Geçerli bir sayı girene kadar tekrar sor
             while (!(input.equals("1") || input.equals("2") || input.equals("3") || input.equals("4"))) {
                 System.out.println("Lütfen geçerli bir seçenek girin (1-4):");
                 input = scan.nextLine();
             }
-            selWeaponID = Integer.parseInt(input);  // Doğruysa int'e çevir
+            selWeaponID = Integer.parseInt(input);
 
 
             if (selWeaponID == 4) {

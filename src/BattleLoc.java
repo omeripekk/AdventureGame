@@ -18,7 +18,6 @@ public abstract class BattleLoc extends Location {
         System.out.println("Dikkatli ol! Burada " + obsCount + " tane " + obstacle.getName() + " yaşıyor!");
 
         String selCase = "";
-        // Geçerli bir giriş alıncaya kadar döngü devam eder.
         while (!selCase.equals("S") && !selCase.equals("K")) {
             System.out.print("<S>avaş veya <K>aç :");
             selCase = scan.nextLine().toUpperCase();
@@ -57,7 +56,6 @@ public abstract class BattleLoc extends Location {
             playerStats();
             enemyStats();
 
-            // Geçerli bir giriş alıncaya kadar döngü devam eder.
             while (player.getHealthy() > 0 && obstacle.getHealth() > 0) {
                 String selCase = "";
                 while (!selCase.equals("V") && !selCase.equals("K")) {
@@ -80,7 +78,7 @@ public abstract class BattleLoc extends Location {
                         afterHit();
                     }
                 } else if (selCase.equals("K")) {
-                    return false; // Kaçtınız, döngüyü bitir
+                    return false;
                 }
             }
 
